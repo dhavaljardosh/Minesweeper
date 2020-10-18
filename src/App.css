@@ -1,8 +1,8 @@
 body {
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-position: center;
-  /* background-image: url(https://i.pinimg.com/originals/b5/58/1f/b5581fe87abcf5afe856246403c423bf.jpg); */
+  background-image: url(./util/minesweeper-background.jpg);
 }
 
 .App {

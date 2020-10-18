@@ -16,6 +16,7 @@ export default function Board() {
     const generateBoard = () => {
       const getBoard = createBoard(10, 15, 20, setMineLocations);
       setNonMinesCount(100 - 20);
+      setTime(0);
       setBoard(getBoard.board);
       setMineLocations(getBoard.mineLocation);
       setGameOver(false);
@@ -45,7 +46,6 @@ export default function Board() {
     } else {
       // newBoardValues[x][y].revealed = true;
       newBoardValues = revealed(newBoardValues, x, y, newNonMinesCount);
-      console.log(newBoardValues);
       if (!newBoardValues) {
         return;
       }
@@ -64,8 +64,8 @@ export default function Board() {
     <div
       style={{ boxShadow: "0 4px 3px rgba(0,0,0,0.3)", position: "relative" }}
     >
-      {/* {gameOver && <Modal reset={setRestart} completeTime={newTime} />} */}
-      <TopBar gameOver={gameOver} setTime={setTime} />
+      {gameOver && <Modal reset={setRestart} completeTime={newTime} />}
+      <TopBar gameOver={gameOver} setTime={setTime} newTime={newTime} />
       {board.map((row, inde) => {
         return (
           <div style={{ display: "flex" }} key={inde}>
@@ -82,7 +82,6 @@ export default function Board() {
           </div>
         );
       })}
-      {/* {nonMinesCount} */}
     </div>
   );
 }
